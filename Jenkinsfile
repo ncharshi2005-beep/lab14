@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Make sure this URL is your actual repo!
-                git 'https://github.com/nharshitha728-boop/lab14'
+                // Specifying 'main' explicitly fixes the "Couldn't find revision" error
+                git branch: 'main', url: 'https://github.com/nharshitha728-boop/lab14.git'
             }
         }
 
         stage('Build & Test') {
             steps {
-                // Use 'bat' for Windows lab PCs
+                // 'bat' for Windows; runs clean and generates the JaCoCo reports
                 bat 'mvn clean test'
             }
         }
@@ -19,8 +19,11 @@ pipeline {
 
     post {
         always {
+            // Publishes the JUnit test results to the Jenkins UI
             junit '**/target/surefire-reports/*.xml'
-archiveArtifacts artifacts: 'target/site/jacoco/**', fingerprint: true
+            
+            // Archives the JaCoCo HTML reports so you can view them in Jenkins
+            archiveArtifacts artifacts: 'target/site/jacoco/**', fingerprint: true
         }
     }
 }

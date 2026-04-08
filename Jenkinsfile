@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Make sure this URL is your actual repo!
-                git 'https://github.com/nharshitha728-boop/lab11.git'
+                git 'https://github.com/nharshitha728-boop/lab14'
             }
         }
 

@@ -1,0 +1,23 @@
+Experiment 14: Test Coverage using JaCoCo
+The objective of this lab is to measure code quality using test coverage metrics by integrating the JaCoCo (Java Code Coverage) plugin into a Maven project.
+
+1. Step 1: Add JaCoCo Plugin to pom.xml
+Add the following configuration inside the <build><plugins> section of your pom.xml. This instruments the bytecode and prepares the agent to generate reports
+
+Run Locally: Execute the command mvn clean test.
+
+
+Locate Report: Navigate to target/site/jacoco/index.html and open it in a browser.
+
+
+Metrics Explained: 
+
+Instruction: % of bytecode executed.
+
+Line: % of source lines executed.
+
+Branch: % of decision branches (e.g., if/else) covered.
+
+Method: % of methods invoked.
+
+4. Step 4: Jenkinsfile for Windows (Generic)

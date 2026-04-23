@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Specifying 'main' explicitly fixes the "Couldn't find revision" error
-                git branch: 'main', url: 'https://github.com/nharshitha728-boop/lab14.git'
+                git branch: 'main', url: 'https://github.com/ncharshi2005-beep/lab14.git'
             }
         }
 
